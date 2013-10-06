@@ -1,0 +1,5 @@
+server {
+  server_name <%= template_options['old_hostname'] %>;
+  listen 80;
+  return 301 $scheme://<%= template_options['new_hostname'] %>$request_uri;
+}

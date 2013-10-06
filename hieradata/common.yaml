@@ -1,6 +1,14 @@
 ---
 classes:
-  -
+  - nginx
+  - nginx::server
+
+ssl::params::ssl_path: /etc/ssl
+ssl::params::ssl_cert_file: certs/ssl-cert-snakeoil.pem
+ssl::params::ssl_key_file: private/ssl-cert-snakeoil.key
+
+nginx::server::serveradmin: alex+lighfe@mullr.net
+nginx::server::default_webroot: /srv/www
 
 accounts:
   alexmuller:
@@ -10,3 +18,21 @@ accounts:
       - alexmuller
       - users
       - sudo
+
+vhostroots:
+  - /srv/www/lighfe.mullr.net
+  - /srv/www/alex.mullr.net
+  - /srv/www/bedouin.mullr.net
+
+vhosts:
+  lighfe.mullr.net:
+    isdefaultvhost: true
+    vhostroot: /srv/www/lighfe.mullr.net
+  alex.mullr.net:
+    vhostroot: /srv/www/alex.mullr.net
+    magic: |
+      location ~ /blog/p {
+        rewrite ^(.*)$ $blogpost permanent;
+      }
+  bedouin.mullr.net:
+    vhostroot: /srv/www/bedouin.mullr.net

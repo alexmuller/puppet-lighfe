@@ -5,4 +5,6 @@ node default {
   # Set up users and groups
   $accounts = hiera('accounts')
   create_resources('account', $accounts)
+
+  include lighfe::nginx
 }
