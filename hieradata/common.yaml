@@ -19,6 +19,24 @@ accounts:
       - users
       - sudo
 
+cronjobs:
+  mollusc:
+    command: php /var/www/mollusc/script/fetch.php
+    user: alexmuller
+    hour: 4
+    minute: 0
+  s3backup:
+    command: /home/alexmuller/lighfe.backup.sh
+    user: alexmuller
+    weekday: Monday
+    hour: 8
+    minute: 0
+  tweetnest:
+    command: php /var/www/tweetnest/maintenance/loadtweets.php
+    user: alexmuller
+    hour: [10, 22]
+    minute: 0
+
 vhostroots:
   - /srv/www/lighfe.mullr.net
   - /srv/www/alex.mullr.net
