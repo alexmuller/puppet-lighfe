@@ -10,4 +10,5 @@ node default {
   create_resources('cron', $cronjobs)
 
   include lighfe::nginx
+  include lighfe::motd
 }
