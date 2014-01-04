@@ -1,5 +1,7 @@
 ---
 classes:
+  - lighfe::nginx
+  - lighfe::motd
   - nginx
   - nginx::server
 
@@ -21,7 +23,7 @@ accounts:
 
 cronjobs:
   mollusc:
-    command: php /var/www/mollusc/script/fetch.php
+    command: php /srv/www/mollusc.lighfe.mullr.net/script/fetch.php
     user: alexmuller
     hour: 4
     minute: 0
@@ -41,6 +43,7 @@ vhostroots:
   - /srv/www/lighfe.mullr.net
   - /srv/www/alex.mullr.net
   - /srv/www/bedouin.mullr.net
+  - /srv/www/mollusc.lighfe.mullr.net
 
 vhosts:
   lighfe.mullr.net:

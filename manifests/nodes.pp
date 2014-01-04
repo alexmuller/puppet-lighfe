@@ -8,7 +8,4 @@ node default {
 
   $cronjobs = hiera('cronjobs')
   create_resources('cron', $cronjobs)
-
-  include lighfe::nginx
-  include lighfe::motd
 }

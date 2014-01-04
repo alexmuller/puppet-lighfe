@@ -8,4 +8,9 @@ Based on [puppet-skeleton](https://github.com/gds-operations/puppet-skeleton).
 
 - Set the hostname
 - Run `sudo apt-get update`
-- Run Puppet
+- Install Ruby, Bundler, `bundle install`, `librarian-puppet install`
+- Run Puppet: `puppet apply manifests/site.pp --verbose --summarize --hiera_config hiera_lighfe.yaml --modulepath=modules:vendor/modules`
+
+## Todo
+
+- unattended-upgrades
